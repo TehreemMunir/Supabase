@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen p-6">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <header class="mb-8 flex justify-between items-center border-b border-gray-800 pb-4">
+            <div>
+                <h1 class="text-2xl font-bold flex items-center gap-2">🎓 Student Management System</h1>
+                <p class="text-sm text-gray-400">Supabase Assignment Dashboard</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Add Student Form -->
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-lg">
+                <h2 class="text-lg font-semibold mb-4 text-indigo-400">Add New Student</h2>
+                <form id="studentForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Student Name</label>
+                        <input type="text" id="studentName" required placeholder="e.g. John Doe" 
+                            class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-gray-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                        <input type="email" id="studentEmail" required placeholder="john@example.com" 
+                            class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-gray-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Enrolled Course</label>
+                        <input type="text" id="studentCourse" placeholder="e.g. Computer Science" 
+                            class="w-full bg-gray-950 border border-gray-800 rounded-lg px-4 py-2 text-gray-100 focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <button type="submit" 
+                        class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 px-4 rounded-lg transition duration-200 shadow-md">
+                        + Save Student Record
+                    </button>
+                </form>
+            </div>
+
+            <!-- Registered Students Table -->
+            <div class="md:col-span-2 bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-lg">
+                <h2 class="text-lg font-semibold mb-4 text-indigo-400">Registered Students</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-800 text-gray-400 text-sm">
+                                <th class="py-3 px-4">Student</th>
+                                <th class="py-3 px-4">Email</th>
+                                <th class="py-3 px-4">Course</th>
+                                <th class="py-3 px-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTableBody">
+                            <tr>
+                                <td colspan="4" class="text-center py-6 text-gray-500">Connecting to Supabase...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
